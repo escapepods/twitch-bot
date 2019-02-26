@@ -8,7 +8,7 @@
     "run": "nodemon app.js"
   },
   "author": "Aron Ben David",
-  "license": "ISC",
+  "license": "GPLv3",
   "dependencies": {
     "twitch-js": "^1.2.17"
   }
