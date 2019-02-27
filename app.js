@@ -62,6 +62,7 @@ client.on('chat', (channel, userstate, message, self) => {
     
     
     // Do not add if statements beyond this comment
+    
 });
 
 // Once connected, do the following
