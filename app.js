@@ -19,7 +19,7 @@ const TwitchJS = require('twitch-js')
 
 // You can connect to multiple channels, separate them with a comma
 // example: "channel_1, channel2, channel_3"
-const channel = "your_twitch_channel"
+const channel = "twitch_channel_name"
 
 // Set options for connecting to Twitch IRC
 let options = {
@@ -32,7 +32,7 @@ let options = {
     },
     identity: {
         // Create a Twitch account for the bot
-        username: "your_bot_twitch_account_name",
+        username: "your_bot_username",
 
         // visit https://twitchapps.com/tmi/ while logged in as bot to generate oauth token
         password: "oauth:your_oauth_token"
@@ -50,18 +50,24 @@ client.on('chat', (channel, userstate, message, self) => {
     // If someone sends !ping in chat, reply with pong!
     if (message == "!ping") {
         client.say(channel, "pong!")
-        .then(() => {
+        // If the message sent successfully
+        .then((data) => {
+            // console.log confirmation message
+            console.log(`${message} resolved successfully on channel ${data[0]}. Response: ${data[1]}`);
+        // or catch the error
         }).catch((err) => {
-            console.log(err);
+            // and send it to console.log
+            console.log(`${message} rejected. Reason: ${err}`);
         });
     }
 
     // If someone sends "Hello" or "hello", reply to the user
     if ((message.startsWith("Hello")) || (message.startsWith("hello"))) {
         client.say(channel, `${userstate['display-name']} HeyGuys`)
-        .then(() => {
+        .then((data) => {
+            console.log(`${message} resolved successfully on channel ${data[0]}. Response: ${data[1]}`);
         }).catch((err) => {
-            console.log(err);
+            console.log(`${message} rejected. Reason: ${err}`);
         });
     }
     
