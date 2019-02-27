@@ -21,7 +21,7 @@ const TwitchJS = require('twitch-js')
 // example: "channel_1, channel2, channel_3"
 const channel = "twitch_channel_name"
 
-// Set options for connecting to Twitch Services
+// Set options for connecting to Twitch IRC
 let options = {
     options: {
         debug: true
@@ -33,13 +33,14 @@ let options = {
     identity: {
         // Create a Twitch account for the bot
         username: "bot_account_name",
+        
         // visit https://twitchapps.com/tmi/ while logged in as bot to generate oauth token
         password: "oauth:your_token"
     },
     channels: [`${channel}`]
 };
 
-// Connect to Twitch Services
+// Connect to Twitch IRC
 const client = new TwitchJS.client(options);
 client.connect();
 
@@ -55,7 +56,12 @@ client.on('chat', (channel, userstate, message, self) => {
     if ((message.startsWith("Hello")) || (message.startsWith("hello"))) {
         client.say(channel, `${userstate['display-name']} HeyGuys`);
     };
+    
+    // Add additional if statements here
 
+    
+    
+    // Do not add if statements beyond this comment
 });
 
 // Once connected, do the following
