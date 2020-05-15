@@ -49,7 +49,7 @@ client.on('chat', (channel, userstate, message, self) => {
 
     // Set up a singular message function
     function sendMessage(a) {
-        client.say(channel, `${a}`)
+        client.say(channel, a)
         // Promise
         .then((data) => {
             // Log promise response to console
