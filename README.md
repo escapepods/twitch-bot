@@ -14,7 +14,7 @@ If you have any issues, see the Issues section below.
 While in the bot's directory, simply run the command: `node app.js`. Press `CTRL+C` to exit the application.
 
 ### Issues
-If you're having troubles getting the bot started or need some further guidance on where to go next, feel free to join my Discord: https://discord.gg/PzF7x7Q
+If you're having troubles getting the bot started or need some further guidance on where to go next, feel free to join my Discord: https://discord.gg/perPvGw
 
 ### Additional Documentation
 To learn more about what you can do with this bot, please read [the tmi.js docs here](https://docs.tmijs.org/v1.3.0/index.html). This bot is based on a community-driven version of tmi.js called twitch-js. The documentation listed is compatible with the current version and should give you some excellent references for future development. If you decide to break off from the stable version of twitch-js and use a beta version, you'll need to consult their documentation for how to build a bot using the new module.
