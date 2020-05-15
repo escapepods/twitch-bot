@@ -47,28 +47,23 @@ client.connect();
 // Monitor chat for incoming messages
 client.on('chat', (channel, userstate, message, self) => {
 
-    // If someone sends !ping in chat, reply with pong!
-    if (message == "!ping") {
-        client.say(channel, "pong!")
-        // If the message sent successfully
+    // Set up a singular message function
+    function sendMessage(x) {
+        client.say(channel, `${x}`)
+        // Promise
         .then((data) => {
-            // console.log confirmation message
+            // Log to console
             console.log(`${message} resolved successfully on channel ${data[0]}. Response: ${data[1]}`);
-        // or catch the error
         }).catch((err) => {
-            // and send it to console.log
+            // Log errors
             console.log(`${message} rejected. Reason: ${err}`);
         });
     }
-
-    // If someone sends "Hello" or "hello", reply to the user
-    if ((message.startsWith("Hello")) || (message.startsWith("hello"))) {
-        client.say(channel, `${userstate['display-name']} HeyGuys`)
-        .then((data) => {
-            console.log(`${message} resolved successfully on channel ${data[0]}. Response: ${data[1]}`);
-        }).catch((err) => {
-            console.log(`${message} rejected. Reason: ${err}`);
-        });
+    
+    // If command = !greet
+    if (message == "!greet") {
+        // Send username and HeyGuys emote to the sendMessage Function for delivery
+        sendMessage(`${userstate['display-name']} HeyGuys`);
     }
     
     // Add additional if statements here
