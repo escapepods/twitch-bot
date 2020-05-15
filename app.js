@@ -48,11 +48,11 @@ client.connect();
 client.on('chat', (channel, userstate, message, self) => {
 
     // Set up a singular message function
-    function sendMessage(x) {
-        client.say(channel, `${x}`)
+    function sendMessage(a) {
+        client.say(channel, `${a}`)
         // Promise
         .then((data) => {
-            // Log to console
+            // Log promise response to console
             console.log(`${message} resolved successfully on channel ${data[0]}. Response: ${data[1]}`);
         }).catch((err) => {
             // Log errors
